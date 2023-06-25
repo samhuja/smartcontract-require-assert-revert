@@ -1,0 +1,19 @@
+pragma solidity ^0.8.0;
+
+contract AssertionExample {
+    uint256 public x;
+
+    function setX(uint256 _x) external {
+        require(_x > 0, "Value must be greater than zero");
+        x = _x;
+    }
+
+    function divide(uint256 _y) external view returns (uint256) {
+        assert(_y != 0);
+        return x / _y;
+    }
+
+    function withdraw() external {
+        revert("Withdrawal is not allowed");
+    }
+}
